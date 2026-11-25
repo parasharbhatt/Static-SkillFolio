@@ -1,10 +1,13 @@
+# Static SkillFolio
 
+Static SkillFolio is a personal portfolio website for presenting Parashar Bhatt's professional profile and project work. It highlights a professional summary, core competencies, skills, certifications, and project cards with descriptions, categories, tools, and GitHub repository links.
 
-Static Skillfolio
+The site is built as a single static HTML page and is intended to be published with GitHub Pages.
 
+## Project Category
 
+`Personal Portfolio` `Static Website` `Professional Profile` `Project Showcase`
 
-Serving initial purpose for PortFolio Website.
+## Tools Used
 
-
-
+`HTML5` `CSS3` `Git` `GitHub` `GitHub Pages`
