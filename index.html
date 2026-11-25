@@ -3,318 +3,565 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skillfolio - Project Overview</title>
+    <meta name="description" content="Parashar Bhatt's portfolio featuring data engineering, business intelligence, analytics projects, technical skills, and certifications.">
+    <title>Parashar Bhatt | Data Engineer &amp; BI Analyst</title>
     <style>
+        :root {
+            color-scheme: dark;
+            --page: #07111f;
+            --surface: #0d1b2a;
+            --surface-raised: #112338;
+            --surface-soft: #13283a;
+            --border: #233b50;
+            --text: #edf4f8;
+            --muted: #a7bac8;
+            --accent: #55e0c0;
+            --accent-hover: #7aefd5;
+            --accent-ink: #06241e;
+            --accent-soft: rgba(85, 224, 192, 0.1);
+            --link: #8debd5;
+            --shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 24px;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0A0E27 0%, #1E2449 100%);
-            color: #E2E8F0;
-            padding: 40px 20px;
+            background:
+                radial-gradient(ellipse at 50% -20%, rgba(32, 201, 166, 0.12), transparent 48%),
+                var(--page);
+            color: var(--text);
+            line-height: 1.65;
+            padding: 32px 24px 48px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1120px;
             margin: 0 auto;
         }
 
         .header {
-            text-align: center;
-            margin-bottom: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 28px;
         }
 
         .logo {
-            font-size: 3rem;
+            color: var(--text);
+            font-size: 1rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #2DD4BF, #EC4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
+            letter-spacing: 0.08em;
+            text-decoration: none;
         }
 
-        .tagline {
-            font-size: 1.5rem;
-            color: #94A3B8;
-            margin-bottom: 40px;
+        .logo span {
+            color: var(--accent);
         }
 
-        .quick-start {
-            background: rgba(30, 36, 73, 0.8);
-            border: 2px solid #2DD4BF;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 40px;
-        }
-
-        .quick-start h2 {
-            color: #2DD4BF;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .steps {
-            list-style: none;
-            counter-reset: step-counter;
-        }
-
-        .steps li {
-            counter-increment: step-counter;
-            margin-bottom: 20px;
-            padding-left: 60px;
-            position: relative;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .steps li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
+        .site-nav {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.2rem;
+            flex-wrap: wrap;
+            gap: 24px;
         }
 
-        .code-block {
-            background: #0A0E27;
-            border: 1px solid #2A3155;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            color: #2DD4BF;
-            overflow-x: auto;
+        .site-nav a,
+        .project-link,
+        .certification-list a {
+            color: var(--link);
+            font-weight: 650;
+            text-decoration: none;
+        }
+
+        .site-nav a:hover,
+        .project-link:hover,
+        .certification-list a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .hero,
+        .content-panel,
+        .tech-stack,
+        .contact-panel {
+            background: linear-gradient(145deg, rgba(17, 35, 56, 0.96), rgba(13, 27, 42, 0.96));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(32px, 7vw, 72px);
+            margin-bottom: 64px;
+        }
+
+        .hero::after {
+            position: absolute;
+            content: "";
+            width: 280px;
+            height: 280px;
+            top: -150px;
+            right: -80px;
+            border: 1px solid rgba(85, 224, 192, 0.2);
+            border-radius: 50%;
+            box-shadow: 0 0 0 32px rgba(85, 224, 192, 0.035), 0 0 0 64px rgba(85, 224, 192, 0.025);
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 0.82rem;
+            font-weight: 750;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            max-width: 760px;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            letter-spacing: -0.045em;
+            line-height: 1.08;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-copy {
+            max-width: 700px;
+            color: var(--muted);
+            font-size: 1.12rem;
+            margin-bottom: 28px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 48px;
+            padding: 11px 20px;
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            background: var(--accent);
+            color: var(--accent-ink);
+            font-weight: 750;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .section {
+            margin-bottom: 64px;
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(1.7rem, 4vw, 2.25rem);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .content-panel {
+            padding: clamp(22px, 4vw, 36px);
+        }
+
+        .profile-copy {
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .subheading {
+            font-size: 1.15rem;
+            margin-bottom: 16px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .expertise-item {
+            padding: 18px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .expertise-item h3 {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .expertise-item p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .competency-list,
+        .project-tools,
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .competency-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .competency-list li,
+        .project-tools span,
+        .tech-tag {
+            padding: 7px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--surface-soft);
+            color: var(--text);
+            font-size: 0.88rem;
+        }
+
+        .certification-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            list-style: none;
+        }
+
+        .certification-list li {
+            padding: 14px 16px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--muted);
+        }
+
+        .certification-list a {
+            display: inline-block;
+            margin-left: 4px;
+            white-space: nowrap;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 18px;
         }
 
         .feature-card {
-            background: rgba(30, 36, 73, 0.6);
-            border: 1px solid #2A3155;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 30px;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: #2DD4BF;
-            box-shadow: 0 8px 32px rgba(45, 212, 191, 0.2);
+            transform: translateY(-4px);
+            border-color: rgba(85, 224, 192, 0.65);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            color: #2DD4BF;
-            margin-bottom: 15px;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(85, 224, 192, 0.2);
+            border-radius: 12px;
+            background: var(--accent-soft);
             font-size: 1.5rem;
         }
 
+        .feature-card h3 {
+            font-size: 1.15rem;
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
         .feature-card p {
-            color: #94A3B8;
+            color: var(--muted);
             line-height: 1.6;
         }
 
-        .project-category {
-            margin-top: 16px;
-            font-size: 0.95rem;
+        .feature-card .project-category {
+            margin-top: 14px;
+            font-size: 0.9rem;
         }
 
         .project-category strong {
-            color: #E2E8F0;
+            color: var(--text);
         }
 
         .project-tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 12px;
+            margin-top: 14px;
         }
 
         .project-tools span {
-            background: rgba(102, 126, 234, 0.2);
-            border: 1px solid #49588C;
-            border-radius: 20px;
-            color: #CBD5E1;
-            font-size: 0.85rem;
-            padding: 5px 10px;
+            color: var(--muted);
+            font-size: 0.78rem;
+            padding: 4px 9px;
         }
 
         .project-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #2DD4BF;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .project-link:hover {
-            color: #5EEAD4;
-            text-decoration: underline;
-        }
-
-        .project-link-placeholder {
-            color: #94A3B8;
-            cursor: default;
+            align-self: flex-start;
+            margin-top: auto;
+            padding-top: 18px;
         }
 
         .tech-stack {
-            background: rgba(30, 36, 73, 0.8);
-            border: 1px solid #2A3155;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 40px;
+            padding: clamp(22px, 4vw, 36px);
+            margin-bottom: 64px;
         }
 
         .tech-stack h2 {
-            color: #EC4899;
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .tech-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .cta {
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 16px;
-            padding: 60px 40px;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
+            font-size: 1.6rem;
             margin-bottom: 20px;
         }
 
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.9);
+        .tech-tag {
+            color: var(--muted);
         }
 
-        .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+        .contact-panel {
+            padding: clamp(28px, 5vw, 52px);
+            text-align: center;
+            border-color: rgba(85, 224, 192, 0.35);
+            background:
+                radial-gradient(ellipse at 50% 0, rgba(32, 201, 166, 0.12), transparent 70%),
+                var(--surface);
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        .contact-panel h2 {
+            font-size: clamp(1.7rem, 4vw, 2.35rem);
+            margin-bottom: 10px;
         }
 
-        @media (max-width: 768px) {
-            .features-grid {
+        .contact-panel p {
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .contact-panel .btn {
+            margin: 0 5px;
+        }
+
+        .footer {
+            padding-top: 28px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 20px 16px 36px;
+            }
+
+            .header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .site-nav {
+                gap: 18px;
+                font-size: 0.92rem;
+            }
+
+            .hero {
+                margin-bottom: 48px;
+            }
+
+            .section {
+                margin-bottom: 48px;
+            }
+
+            .expertise-grid,
+            .certification-list {
                 grid-template-columns: 1fr;
             }
 
-            .logo {
-                font-size: 2rem;
+            .tech-stack {
+                margin-bottom: 48px;
             }
+        }
 
-            .tagline {
-                font-size: 1.2rem;
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo">⚡ SKILLFOLIO</div>
-            <p class="tagline">Parashar Bhatt Project Portfolio & Skills Showcase</p>
-        </div>
+        <header class="header">
+            <a class="logo" href="#top" aria-label="Parashar Bhatt portfolio home"><span>PB</span> &nbsp;PORTFOLIO</a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="#profile">Profile</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
-        <div class="quick-start">
-            <h2>🚀 Data Engineer / Analyst / QE Automation</h2>
-            <ul class="steps">
-                <li>
-                    <strong>Professional Summary</strong><br>
-                    Results-driven SQL/Power BI Developer and Data Engineer with 8+ years of experience designing, developing, and deploying advanced BI solutions and data visualizations. <br>
-                    Proven expertise in Power BI (Desktop & Service), DAX, Power Query (M), SQL optimization, and data modeling using star/snowflake schemas. <br>
-                    Demonstrated success in building automated ETL pipelines, implementing row-level security, and creating executive dashboards that drive strategic decision-making. <br>
-                    Microsoft Certified Fabric Data Engineer and Analytics Engineer with strong stakeholder management skills and a track record of delivering scalable analytics solutions in Agile environments.
-                </li>
-                <li>
-                    <strong>Core Competencies</strong>
-                    <div class="code-block">Data Engineering * Data Modeling * Data Analysis * Business Intelligence Reporting * <br>
-                    Dashboard Creation  *
-                         Microsoft SQL Server * MySQL * Oracle * Python * Pandas * PySpark * <br>Databricks * Java *  Workflow Automation *
-                         SSIS * SSRS * Microsoft Azure * Microsoft Fabric * <br>Azure Data Factory *  Git * Jira * Confluence *  Robot Framework * Selenium *
-                         Microsoft Excel * <br>VBA Programming * Power Query * DAX
+        <main>
+            <section class="hero" id="top" aria-labelledby="hero-title">
+                <p class="eyebrow">Data Engineering · Business Intelligence · Analytics</p>
+                <h1 id="hero-title">Hi, I’m Parashar.<br><span>I turn data into decisions.</span></h1>
+                <p class="hero-copy">Data Engineer and BI Developer / Analyst with 10+ years of experience building dependable data pipelines, analytics-ready models, and clear reporting that helps teams make better decisions.</p>
+                <div class="hero-actions">
+                    <a class="btn" href="#projects">Explore my projects</a>
+                    <a class="btn btn-secondary" href="mailto:parasharbhatt@yahoo.com">Get in touch</a>
+                </div>
+            </section>
+
+            <section class="section" id="profile" aria-labelledby="profile-title">
+                <div class="section-heading">
+                    <p class="eyebrow">Professional profile</p>
+                    <h2 id="profile-title">From raw data to trusted insight</h2>
+                    <p>Data platforms, dimensional modeling, and business-ready analytics.</p>
+                </div>
+                <div class="content-panel">
+                    <p class="profile-copy">With more than a decade across Data Engineering and Business Intelligence, I build reliable, end-to-end data ecosystems—from ingestion and ETL/ELT orchestration through warehouse and semantic modeling to executive-ready dashboards. My experience spans Microsoft Fabric, Azure, SQL Server, Python, and Power BI, with a focus on scalable solutions, governed data, and useful outcomes.</p>
+                    <h3 class="subheading">Core technical expertise</h3>
+                    <div class="expertise-grid">
+                        <article class="expertise-item">
+                            <h3>Data Engineering</h3>
+                            <p>Designing Lakehouses, Warehouses, and automated ETL/ELT pipelines with Microsoft Fabric, Azure, PySpark, and Python.</p>
+                        </article>
+                        <article class="expertise-item">
+                            <h3>Data Warehousing</h3>
+                            <p>Building relational and dimensional models, performance-tuned SQL, stored procedures, and SSIS modernization paths.</p>
+                        </article>
+                        <article class="expertise-item">
+                            <h3>Power BI &amp; Semantic Models</h3>
+                            <p>Developing star-schema models, DAX measures, Row-Level Security, and Direct Lake / composite solutions.</p>
+                        </article>
+                        <article class="expertise-item">
+                            <h3>Analytics &amp; Storytelling</h3>
+                            <p>Translating business questions into intuitive dashboards and reporting for leadership and operational teams.</p>
+                        </article>
                     </div>
-                </li>
-                <li>
-                    <strong>Core Skills</strong>
-                    <div class="code-block">Positive attitude * Critical thinking * Time management * Customer service * Communication * <br>
-                    Conflict resolution * Flexibility * Teamwork * Leadership</div>
-                </li>
-                <li>
-                    <strong>Certifications</strong><br>
-                    <code style="color: #2DD4BF;">Microsoft Certified: Azure Fundamentals (11-Oct-2023)<a href="./Images/Microsoft_Certified_Azure_Fundamentals.png" style="color: #f2f5f7" target="_blank"> Verify</a></code><br>
-                    <code style="color: #2DD4BF;">Microsoft Certified: Fabric Analytics Engineer Associate (20-Oct-2025)<a href="./Images/Microsoft_Certified_Fabric_Analytics_Engineer_Associate.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
-                    <code style="color: #2DD4BF;">Microsoft Certified: Fabric Data Engineer Associate (30-Dec-2025)<a href="./Images/Microsoft_Certified_Fabric_Data_Engineer_Associate.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
-                    <code style="color: #2DD4BF;">SAS Certified Advanced Programmer for SAS 9 (17-Nov-2012)<a href="./Images/SAS_Certified_Advanced_Programmer_SAS9.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
-                    <code style="color: #2DD4BF;">SAS Certified Base Programmer for SAS 9 (06-Aug-2011)<a href="./Images/SAS_Certified_Base_Programmer_SAS9.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
-                    <code style="color: #2DD4BF;">AWS Certified Developer - Associate (29-Dec-2021 to 29-Dec-2024)<a href="./Images/AWS_Certified_Developer_Associate.png" style="color: #f2f5f7"  target="_blank"> Verify</a></code><br>
-                    <code style="color: #2DD4BF;">AWS Certified Solutions Architect - Associate (10-May-2021 to 10-May-2024)<a href="./Images/AWS_Certified_Solutions_Architect_Associate.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
-                    <code style="color: #2DD4BF;">Certified SAFe 6 Agilist (30-Dec-2023 to 30-Dec-2024)<a href="./Images/Certified_SAFe6_Agilist.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
-                    <code style="color: #2DD4BF;">OCA_JAVA_SE8_Programmer_I_eCertificate(04-Jan-2017 to 04-Jan-2019)<a href="./Images/OCA_Java_SE8_Programmer.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
-                    <code style="color: #2DD4BF;">Udemy Complete Python 3 Bootcamp<a href="./Images/Udemy_Complete_Python3_Bootcamp.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
-                    <code style="color: #2DD4BF;">Udemy The Complete Data Science Bootcamp<a href="./Images/Udemy_The_Data_Science_Course.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
-                    <code style="color: #2DD4BF;">Udemy Tableau Funcamentals<a href="./Images/Udemy_Tableau_Fundamentals.png" style="color: #f2f5f7"  target="_blank">Verify</a></code><br>
+                </div>
+            </section>
 
+            <section class="section" id="skills" aria-labelledby="skills-title">
+                <div class="section-heading">
+                    <p class="eyebrow">Capabilities</p>
+                    <h2 id="skills-title">Skills &amp; certifications</h2>
+                    <p>A practical mix of engineering, analytics, platform, and delivery experience.</p>
+                </div>
+                <div class="content-panel">
+                    <h3 class="subheading">Core competencies</h3>
+                    <ul class="competency-list">
+                        <li>Data Engineering</li>
+                        <li>ETL / ELT</li>
+                        <li>Data Modeling</li>
+                        <li>Data Warehousing</li>
+                        <li>Business Intelligence</li>
+                        <li>Data Analysis</li>
+                        <li>Dashboard Development</li>
+                        <li>Data Visualization</li>
+                        <li>Workflow Automation</li>
+                        <li>Stakeholder Communication</li>
+                        <li>Team Collaboration</li>
+                    </ul>
+                    <h3 class="subheading">Certifications &amp; credentials</h3>
+                    <ul class="certification-list">
+                        <li>Microsoft Certified: Fabric Data Engineer Associate (30-Dec-2025) <a href="./Images/Microsoft_Certified_Fabric_Data_Engineer_Associate.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>Microsoft Certified: Fabric Analytics Engineer Associate (20-Oct-2025) <a href="./Images/Microsoft_Certified_Fabric_Analytics_Engineer_Associate.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>Microsoft Certified: Azure Fundamentals (11-Oct-2023) <a href="./Images/Microsoft_Certified_Azure_Fundamentals.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>SAS Certified Advanced Programmer for SAS 9 (17-Nov-2012) <a href="./Images/SAS_Certified_Advanced_Programmer_SAS9.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>SAS Certified Base Programmer for SAS 9 (06-Aug-2011) <a href="./Images/SAS_Certified_Base_Programmer_SAS9.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>AWS Certified Developer - Associate (29-Dec-2021 to 29-Dec-2024) <a href="./Images/AWS_Certified_Developer_Associate.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>AWS Certified Solutions Architect - Associate (10-May-2021 to 10-May-2024) <a href="./Images/AWS_Certified_Solutions_Architect_Associate.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>Certified SAFe 6 Agilist (30-Dec-2023 to 30-Dec-2024) <a href="./Images/Certified_SAFe6_Agilist.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>OCA Java SE 8 Programmer I (04-Jan-2017 to 04-Jan-2019) <a href="./Images/OCA_Java_SE8_Programmer.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>Udemy Complete Python 3 Bootcamp <a href="./Images/Udemy_Complete_Python3_Bootcamp.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>Udemy The Complete Data Science Bootcamp <a href="./Images/Udemy_The_Data_Science_Course.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                        <li>Udemy Tableau Fundamentals <a href="./Images/Udemy_Tableau_Fundamentals.png" target="_blank" rel="noopener noreferrer">Verify</a></li>
+                    </ul>
+                </div>
+            </section>
 
-                </li>
-            </ul>
-            <p style="margin-top: 30px; padding: 20px; background: rgba(45, 212, 191, 0.1); border-left: 4px solid #2DD4BF; border-radius: 8px;">
-                <strong>💡 Contact Information:</strong> <br>
-                <strong>Email :</strong><code>   parasharbhatt@yahoo.com</code><br>
-
-            </p>
-        </div>
-
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #2DD4BF;">✨ Projects</h2>
+            <section class="section" id="projects" aria-labelledby="projects-title">
+                <div class="section-heading">
+                    <p class="eyebrow">Selected work</p>
+                    <h2 id="projects-title">Projects</h2>
+                    <p>Examples across data engineering, business intelligence, analytics, and software development.</p>
+                </div>
 
         <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛒</div>
+                <h3>SQL Server 2025 Retail Data Ecosystem</h3>
+                <p>A retail OLTP and Kimball-style data warehouse implementation with historized dimensions, incremental ETL, scheduled jobs, and a Power BI report.</p>
+                <p class="project-category"><strong>Category:</strong> Data Engineering, Data Warehouse, Retail Analytics</p>
+                <div class="project-tools"><span>SQL Server 2025</span><span>T-SQL</span><span>SQL Server Agent</span><span>Power BI</span><span>VS Code</span></div>
+                <a class="project-link" href="https://github.com/parasharbhatt/retail-sql2025-ecosystem" target="_blank" rel="noopener noreferrer">View GitHub Repository ↗</a>
+            </div>
+
             <div class="feature-card">
                 <div class="feature-icon">🎯</div>
                 <h3>Bank Customer Churn Analysis</h3>
@@ -415,15 +662,6 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🛒</div>
-                <h3>SQL Server 2025 Retail Data Ecosystem</h3>
-                <p>A retail OLTP and Kimball-style data warehouse implementation with historized dimensions, incremental ETL, scheduled jobs, and a Power BI report.</p>
-                <p class="project-category"><strong>Category:</strong> Data Engineering, Data Warehouse, Retail Analytics</p>
-                <div class="project-tools"><span>SQL Server 2025</span><span>T-SQL</span><span>SQL Server Agent</span><span>Power BI</span><span>VS Code</span></div>
-                <a class="project-link" href="https://github.com/parasharbhatt/retail-sql2025-ecosystem" target="_blank" rel="noopener noreferrer">View GitHub Repository ↗</a>
-            </div>
-
-            <div class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3>SkillFolio Portfolio</h3>
                 <p>This static portfolio presents professional experience, skills, certifications, and project work as a GitHub Pages website.</p>
@@ -442,8 +680,10 @@
             </div>
         </div>
 
-        <div class="tech-stack">
-            <h2>🛠️ Technology Stack</h2>
+            </section>
+
+        <section class="tech-stack" aria-labelledby="tech-title">
+            <h2 id="tech-title">Technology stack</h2>
             <div class="tech-tags">
                 <span class="tech-tag">Microsoft SQL Server</span>
                 <span class="tech-tag">SQL</span>
@@ -496,18 +736,21 @@
                 <span class="tech-tag">Microsoft Copilot</span>
                 <span class="tech-tag">Agentic Development</span>
             </div>
-        </div>
+        </section>
 
-        <div class="cta">
-            <h2>Turning ideas into reality?</h2>
-            <!--<p>Start showcasing your skills and projects today!</p>
-             <a href="#" class="btn">Get Started Now</a> -->
-        </div>
+        <section class="contact-panel" id="contact" aria-labelledby="contact-title">
+            <p class="eyebrow">Let’s connect</p>
+            <h2 id="contact-title">Let’s build better data experiences.</h2>
+            <p>Interested in a Data Engineering, BI Developer, or Data Analyst opportunity?</p>
+            <a class="btn" href="mailto:parasharbhatt@yahoo.com">Email Parashar</a>
+            <a class="btn btn-secondary" href="https://github.com/parasharbhatt" target="_blank" rel="noopener noreferrer">Visit GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/parashar-bhatt-0978287/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+        </section>
+        </main>
 
-        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid #2A3155; color: #94A3B8;">
-            <p>Work with ❤️ Confidence</p>
-            <p style="margin-top: 10px;">Documenting the concept <Br>Conduct market research <Br>Create a prototype or action plan<Br>Secure feedback! 🚀</p>
-        </div>
+        <footer class="footer">
+            <p>Parashar Bhatt · Data Engineering &amp; Business Intelligence</p>
+        </footer>
     </div>
 </body>
 </html>
