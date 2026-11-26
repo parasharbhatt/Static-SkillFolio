@@ -295,6 +295,90 @@
             white-space: nowrap;
         }
 
+        .experience-timeline {
+            position: relative;
+            display: grid;
+            gap: 18px;
+        }
+
+        .experience-timeline::before {
+            position: absolute;
+            content: "";
+            top: 24px;
+            bottom: 24px;
+            left: 23px;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .experience-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: 48px minmax(0, 1fr);
+            align-items: start;
+        }
+
+        .experience-marker {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(85, 224, 192, 0.35);
+            border-radius: 50%;
+            background: var(--surface-raised);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+
+        .experience-content {
+            margin-left: 18px;
+            padding: 22px 24px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 12px;
+        }
+
+        .experience-header h3 {
+            color: var(--text);
+            font-size: 1.12rem;
+            line-height: 1.35;
+        }
+
+        .experience-company {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .experience-location {
+            color: var(--muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .experience-list {
+            display: grid;
+            gap: 8px;
+            margin: 0 0 16px;
+            padding-left: 18px;
+            color: var(--muted);
+        }
+
+        .experience-list li::marker {
+            color: var(--accent);
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -438,6 +522,20 @@
                 grid-template-columns: 1fr;
             }
 
+            .experience-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .experience-content {
+                margin-left: 12px;
+                padding: 18px;
+            }
+
+            .experience-location {
+                white-space: normal;
+            }
+
             .tech-stack {
                 margin-bottom: 48px;
             }
@@ -459,6 +557,7 @@
             <a class="logo" href="#top" aria-label="Parashar Bhatt portfolio home"><span>PB</span> &nbsp;PORTFOLIO</a>
             <nav class="site-nav" aria-label="Main navigation">
                 <a href="#profile">Profile</a>
+                <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
@@ -501,6 +600,128 @@
                         <article class="expertise-item">
                             <h3>Analytics &amp; Storytelling</h3>
                             <p>Translating business questions into intuitive dashboards and reporting for leadership and operational teams.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="experience" aria-labelledby="experience-title">
+                <div class="section-heading">
+                    <p class="eyebrow">Work experience</p>
+                    <h2 id="experience-title">Enterprise delivery across BI and data</h2>
+                    <p>Roles focused on scalable analytics, trusted data, and measurable business impact.</p>
+                </div>
+                <div class="content-panel">
+                    <div class="experience-timeline">
+                        <article class="experience-card">
+                            <div class="experience-marker" aria-hidden="true">2025</div>
+                            <div class="experience-content">
+                                <div class="experience-header">
+                                    <div>
+                                        <h3>Professional Development</h3>
+                                        <p class="experience-company">Certification &amp; Technical Skill Development</p>
+                                    </div>
+                                    <p class="experience-location">Sep 2025 - Present · Mississauga, ON</p>
+                                </div>
+                                <ul class="experience-list">
+                                    <li>Earned Microsoft Certified: Fabric Data Engineer Associate and Microsoft Certified: Fabric Analytics Engineer Associate, strengthening expertise in enterprise analytics and reporting infrastructure.</li>
+                                    <li>Completed Microsoft Certified: Azure Fundamentals to build cloud data platform knowledge and prepare for full-time BI delivery roles.</li>
+                                    <li>Continued hands-on development in Microsoft Fabric semantic modeling, Power BI DAX and Power Query, lakehouses, warehouses, data pipelines, and governed reporting.</li>
+                                    <li>Applied these skills to modern BI and data engineering projects while maintaining current knowledge of dimensional modeling and enterprise data governance.</li>
+                                </ul>
+                                <div class="project-tools">
+                                    <span>Microsoft Fabric</span><span>Power BI</span><span>Semantic Models</span><span>DAX</span><span>Power Query</span><span>Azure</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="experience-card">
+                            <div class="experience-marker" aria-hidden="true">2022</div>
+                            <div class="experience-content">
+                                <div class="experience-header">
+                                    <div>
+                                        <h3>Quality Engineer II / Data Engineer</h3>
+                                        <p class="experience-company">TD Bank Group</p>
+                                    </div>
+                                    <p class="experience-location">Apr 2022 - Aug 2025 · Toronto, ON</p>
+                                </div>
+                                <ul class="experience-list">
+                                    <li>Designed Power BI dashboards and reports across SQL Server, Azure, and Excel sources to track test execution, defects, and executive KPIs.</li>
+                                    <li>Built star-schema semantic models and optimized DAX measures for Workday HCM, Payroll, Compensation, and Time Tracking migration analysis.</li>
+                                    <li>Implemented row-level security and automated Python/SAS validation pipelines, achieving 100% data accuracy and reducing manual validation by 80%.</li>
+                                    <li>Improved large-dataset report performance by 40% through SQL tuning, incremental refresh, and Power Query query-folding optimizations.</li>
+                                </ul>
+                                <div class="project-tools">
+                                    <span>Power BI</span><span>DAX</span><span>Power Query</span><span>SQL Server</span><span>Azure</span><span>Python</span><span>SAS</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="experience-card">
+                            <div class="experience-marker" aria-hidden="true">2019</div>
+                            <div class="experience-content">
+                                <div class="experience-header">
+                                    <div>
+                                        <h3>Professional Development</h3>
+                                        <p class="experience-company">Cloud, Programming &amp; Data Science Development</p>
+                                    </div>
+                                    <p class="experience-location">Jun 2019 - Mar 2022 · Toronto, ON</p>
+                                </div>
+                                <ul class="experience-list">
+                                    <li>Earned AWS Certified Solutions Architect - Associate and AWS Certified Developer - Associate credentials, expanding cloud architecture and integration capabilities.</li>
+                                    <li>Completed focused training in Python programming, Git, and Python for data science.</li>
+                                    <li>Applied programming and analytics skills to a predictive modeling data science project.</li>
+                                    <li>Strengthened cloud, version-control, scripting, and analytical foundations for subsequent BI and data engineering delivery.</li>
+                                </ul>
+                                <div class="project-tools">
+                                    <span>AWS</span><span>Python</span><span>Git</span><span>Data Science</span><span>Predictive Modeling</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="experience-card">
+                            <div class="experience-marker" aria-hidden="true">2017</div>
+                            <div class="experience-content">
+                                <div class="experience-header">
+                                    <div>
+                                        <h3>Analyst / Senior Specialist - BI &amp; Data Integration</h3>
+                                        <p class="experience-company">Deloitte LLP</p>
+                                    </div>
+                                    <p class="experience-location">Mar 2017 - May 2019 · Toronto, ON</p>
+                                </div>
+                                <ul class="experience-list">
+                                    <li>Built star-schema semantic models and interactive Power BI dashboards for KPI tracking, benchmarks, and performance reporting across enterprise clients.</li>
+                                    <li>Maintained SQL Server data warehouse tables and SSIS ETL workflows for data from multiple and diverse sources.</li>
+                                    <li>Created SAS, SSRS, and Power BI reports for the Performance Marketing division to measure campaign performance and lead generation.</li>
+                                    <li>Automated reporting with SQL Server Reporting Services and Python, reducing report generation time by 60%.</li>
+                                </ul>
+                                <div class="project-tools">
+                                    <span>Power BI</span><span>SSIS</span><span>SSRS</span><span>SAS</span><span>SQL Server</span><span>Python</span><span>Excel VBA</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="experience-card">
+                            <div class="experience-marker" aria-hidden="true">2008</div>
+                            <div class="experience-content">
+                                <div class="experience-header">
+                                    <div>
+                                        <h3>Data Analyst / Business Solutions Analyst</h3>
+                                        <p class="experience-company">Cornerstone Group of Companies</p>
+                                    </div>
+                                    <p class="experience-location">Mar 2008 - Jul 2016 · Toronto, ON</p>
+                                </div>
+                                <ul class="experience-list">
+                                    <li>Delivered marketing analytics and visualizations using SQL Server, Power BI, SAS, Python, and Excel.</li>
+                                    <li>Developed SSIS ETL processes to stage, integrate, and transform client data in centralized databases.</li>
+                                    <li>Performed profiling, cleansing, transformation, and validation to improve data quality across large datasets.</li>
+                                    <li>Conducted end-of-campaign analysis and response modeling to measure effectiveness and optimize future strategies.</li>
+                                    <li>Recognized with the President's Award for Best Employee and Team Player's Award.</li>
+                                </ul>
+                                <div class="project-tools">
+                                    <span>Power BI</span><span>SSIS</span><span>SQL Server</span><span>SAS</span><span>Python</span><span>Excel</span>
+                                </div>
+                            </div>
                         </article>
                     </div>
                 </div>
